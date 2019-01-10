@@ -16,9 +16,6 @@ export default class reactNative extends Component {
   render() {
     return (
       <View>
-        {/* <Text>
-          11111111
-        </Text> */}
         <Home/>
       </View>
     );
