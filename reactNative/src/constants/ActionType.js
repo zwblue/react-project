@@ -1,0 +1,21 @@
+
+// pageConfig
+export const UPDATE_CONFIG = "UPDATE_CONFIG";
+
+// list
+export const UPDATE_LOADING_STATE = "UPDATE_LOADING_STATE";
+export const UPDATE_DATA_STATE = "UPDATE_DATA_STATE";
+export const UPDATE_INTERFACE_STATE = "UPDATE_INTERFACE_STATE";
+export const UPDATE_LIST_DATA = "UPDATE_LIST_DATA";
+export const UPDATE_INTERFACE_PARAMS = "UPDATE_INTERFACE_PARAMS";
+export const RESET_STATE = "RESET_STATE";
+// tab
+export const UPDATE_TAB_INDEX = "UPDATE_TAB_INDEX";
+
+//native
+export const UPDATE_NATIVE_DATA = "UPDATE_NATIVE_DATA";
+
+// fetch
+export const UPDATE_LOADED_STATE = "UPDATE_LOADED_STATE";
+
+
