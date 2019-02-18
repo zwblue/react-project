@@ -32,7 +32,11 @@ export class Section extends Component {
   handleHomeData(homeData) {
     this.setState({
       adsListData:homeData.FirstAppAdsJson || [], //  不加这个莫名的报错
-      noticeListData:homeData.AnnounceJson || [],
+      // homeData.AnnounceJson || 
+      noticeListData:[
+        {content: '海通证券详情消息推荐，希望大家稍微看一看'},
+        {content: '如何有效的投股，永远不要相信别人推荐的传销内容'},
+      ],
       topicListData:homeData.TopicPicsJson || [],
       liveFmListData: homeData.FmLivePicsJson || []
      })
