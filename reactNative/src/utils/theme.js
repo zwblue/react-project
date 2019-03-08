@@ -2,10 +2,10 @@ const variables = {
   // 边框倒角大小
   $radiusSize: 12,
   // 字体大小
-  $baseSize:Px(30),
-  $bigerSize:Px(33),//0.48
-  $bigestSize:Px(36),
-  $smallSize:Px(27),
+  $baseSize:30,
+  $bigerSize:33,//0.48
+  $bigestSize:36,
+  $smallSize:27,
   // 基本字体色彩
   $grayText: '#999',
   $whiteText: '#FFF',

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import {StyleSheet, View, ScrollView } from 'react-native'
 // import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import Header from './layout/Header'
@@ -21,11 +21,19 @@ const styles = StyleSheet.create({
   container: {
     position: 'absolute',
     top:0,
-    paddingTop:40,
+    paddingTop:30,
     backgroundColor:'#fff',
     left:0,
     right:0,
     bottom:0,
+    zIndex: 9999
+  },
+  innerContainer:{
+    position: 'relative',
+    left:0,
+    right:0,
+    bottom:0,
+    zIndex: 0,
   }
 })
 
@@ -77,8 +85,10 @@ class Home extends Component {
         <Provider store={store}>
            <View style={styles.container}>
              <Header></Header>
-             <Nav navMenusData={navMenusData}></Nav>
-             <Section homeData={homeData}></Section>
+             <ScrollView style={styles.innerContainer}>
+                <Nav navMenusData={navMenusData}></Nav>
+                <Section homeData={homeData}></Section>
+             </ScrollView>
           </View>
        </Provider>
     )
