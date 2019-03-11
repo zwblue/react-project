@@ -27,13 +27,52 @@ class App extends Component {
    */
   config: Config = {
     pages: [
-      'pages/index/index'
+      'pages/index/index',
+      'pages/meeting/index',
+      'pages/user/index',
     ],
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#fff',
       navigationBarTitleText: 'WeChat',
       navigationBarTextStyle: 'black'
+    },
+    tabBar: {
+      selectedColor: '#426188',
+      color: '#929292',
+      backgroundColor: '#1d2833',
+      list: [
+        {
+          pagePath: 'pages/index/index',
+          text: '首页',
+          iconPath: 'images/tabs/tab_index.png',
+          selectedIconPath: 'images/tabs/tab_index_on.png'
+        },
+        {
+          pagePath: 'pages/meeting/index',
+          text: '自选',
+          iconPath: 'images/tabs/tab_optional.png',
+          selectedIconPath: 'images/tabs/tab_optional_on.png'
+        },
+        {
+          pagePath: 'pages/user/index',
+          text: '行情',
+          iconPath: 'images/tabs/tab_market.png',
+          selectedIconPath: 'images/tabs/tab_market_on.png'
+        },
+        {
+          pagePath: 'pages/meeting/index',
+          text: '资讯',
+          iconPath: 'images/tabs/tab_info.png',
+          selectedIconPath: 'images/tabs/tab_info_on.png'
+        },
+        {
+          pagePath: 'pages/index/index',
+          text: '我的',
+          iconPath: 'images/tabs/tab_user.png',
+          selectedIconPath: 'images/tabs/tab_user_on.png'
+        }
+      ]
     }
   }
 

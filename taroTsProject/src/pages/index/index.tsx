@@ -1,9 +1,7 @@
 import { ComponentClass } from 'react'
 import Taro, { Component, Config } from '@tarojs/taro'
-import { View, Button, Text } from '@tarojs/components'
-import { connect } from '@tarojs/redux'
-
-import { add, minus, asyncAdd } from '../../actions/counter'
+import { View, Input, Button} from '@tarojs/components'
+import BaseSwiper from './swiper/BaseSwiper'
 
 import './index.scss'
 
@@ -17,52 +15,21 @@ import './index.scss'
 //
 // #endregion
 
-type PageStateProps = {
-  counter: {
-    num: number
-  }
-}
 
-type PageDispatchProps = {
-  add: () => void
-  dec: () => void
-  asyncAdd: () => any
-}
-
-type PageOwnProps = {}
+type PageOwnProps = {}  // 类型是对象
 
 type PageState = {}
 
-type IProps = PageStateProps & PageDispatchProps & PageOwnProps
 
 interface Index {
-  props: IProps;
+  props: PageOwnProps;
 }
 
-@connect(({ counter }) => ({
-  counter
-}), (dispatch) => ({
-  add () {
-    dispatch(add())
-  },
-  dec () {
-    dispatch(minus())
-  },
-  asyncAdd () {
-    dispatch(asyncAdd())
-  }
-}))
 class Index extends Component {
-
-    /**
-   * 指定config的类型声明为: Taro.Config
-   *
-   * 由于 typescript 对于 object 类型推导只能推出 Key 的基本类型
-   * 对于像 navigationBarTextStyle: 'black' 这样的推导出的类型是 string
-   * 提示和声明 navigationBarTextStyle: 'black' | 'white' 类型冲突, 需要显示声明类型
-   */
-    config: Config = {
-    navigationBarTitleText: '首页'
+  config: Config = {
+    navigationBarTitleText: '长江研究',
+    navigationBarBackgroundColor: '#e31400',
+    navigationBarTextStyle: 'white'
   }
 
   componentWillReceiveProps (nextProps) {
@@ -74,15 +41,41 @@ class Index extends Component {
   componentDidShow () { }
 
   componentDidHide () { }
-
+  onChange = (value: any): void => {
+    console.log(value)
+  }
+  openPdfEvent = (): void => {
+    Taro.downloadFile({
+      url: 'https://rdfile.gw.com.cn/new/dzh/tb_gg/2019/3/9/E05F4B3B68FCA97D88C89119520C1732_5073116.pdf',
+      success: (res) => {
+        console.log(res)
+        var Path = res.tempFilePath //返回的文件临时地址，用于后面打开本地预览所用
+        // that.webview=Path
+        Taro.openDocument({
+          filePath: Path,
+          fileType: 'pdf'
+        }).then((res) => {
+          console.log(res)
+        }).catch((err) => {
+         throw new Error(err)
+        })
+      },
+      fail: function(res) {
+          console.log(res)
+      }
+  })
+  }
   render () {
     return (
-      <View className='index'>
-        <Button className='add_btn' onClick={this.props.add}>+</Button>
-        <Button className='dec_btn' onClick={this.props.dec}>-</Button>
-        <Button className='dec_btn' onClick={this.props.asyncAdd}>async</Button>
-        <View><Text>{this.props.counter.num}</Text></View>
-        <View><Text>Hello, World</Text></View>
+      <View className='research'>
+        <View className='search-box'>
+          <View className='input-box'>
+            <View className='search-icon'></View>
+            <Input placeholder='请输入关键字搜索' className='search-input' onInput={this.onChange}/>
+          </View>
+        </View>
+        <BaseSwiper></BaseSwiper>
+        <Button onClick={this.openPdfEvent}>打开pdf</Button>
       </View>
     )
   }

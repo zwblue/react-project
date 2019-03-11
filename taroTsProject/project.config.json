@@ -1,13 +1,15 @@
 {
-  "miniprogramRoot": "./dist",
-  "projectname": "taroTsProject",
-  "description": "taro创建ts小程序项目",
-  "appid": "touristappid",
-  "setting": {
-    "urlCheck": true,
-    "es6": false,
-    "postcss": false,
-    "minified": false
-  },
-  "compileType": "miniprogram"
+	"miniprogramRoot": "dist/",
+	"projectname": "taroTsProject",
+	"description": "taro创建ts小程序项目",
+	"appid": "wxf9d5c79f78faf110",
+	"setting": {
+		"urlCheck": true,
+		"es6": false,
+		"postcss": false,
+		"minified": false,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"condition": {}
 }
